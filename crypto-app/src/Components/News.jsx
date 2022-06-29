@@ -3,6 +3,7 @@ import { Select, Typography, Row, Col, Avatar,Card } from 'antd';
 import moment from "moment";
 import { useGetCryptoNewsQuery } from '../Services/cryptoNewsApi';
 import { useGetCryptosQuery } from '../Services/CryptoApi';
+import Loader from './Loader';
 
 const {Title, Text}= Typography;
 const {Option }= Select;
@@ -16,7 +17,7 @@ const News = ({simplified}) => {
   console.log(cryptoNews, "news")
   
 
-  if(!cryptoNews?.value) return "Loading..."
+  if(!cryptoNews?.value) return <Loader/>
   return (
    <Row gutter={[24,24]}>
 
@@ -39,7 +40,7 @@ const News = ({simplified}) => {
 
      {cryptoNews.value.map((news,i)=>(
        <Col xs={24} sm={12} lg={8} key={i} >
-         <Card hoverable className='news-card'>
+         <Card hoverable={true} className='news-card'>
            <a href={news.url} target="_blank" >
              <div className='news-image-container'>
                <Title className='news-title' level={4}>{news.name}</Title>
