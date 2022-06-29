@@ -11,12 +11,13 @@ import News from './Components/News';
 
 function App() {
   return (
-    <div className="App">
+    <div className="app">
      <div className='navbar'>
        <Navbar/>
      </div>
      <div className='main'>
        <Layout>
+         <div className='routes'>
          <Routes>
           <Route path="/" element={<HomePage/>}/>
           <Route path="/cryptocurrencies" element={<Cryptocurrencies/>}/>
@@ -24,6 +25,7 @@ function App() {
           <Route path="/exchanges" element={<Exchanges/>}/>
           <Route path="/news" element={<News/>}/>
          </Routes>
+         </div>
        </Layout>
        <div className="footer">
         <Typography.Title level={5} style={{ color: 'white', textAlign: 'center' }}>Copyright © 2021
